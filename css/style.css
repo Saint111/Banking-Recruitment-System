@@ -1,0 +1,75 @@
+.jumbotron
+{
+    background: gray url("../images/header.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.jumbotron h3
+{
+    color: white;
+    text-shadow: 1px 0 30px rgba(0, 0, 0, 1), 1px 0 30px rgba(0, 0, 0, 1), 1px 0 30px rgba(0, 0, 0, 1);
+}
+
+.input-group input[name='search']
+{
+    width: 300px;
+}
+
+/*------------------------------This is animated button---------------------------------*/
+.btn-arrow-right
+{
+    display: inline-block;
+    border-radius: 3px;
+    background-color: rgb(76, 175, 80);
+    border: none;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 20px;
+    padding: 5px 10px;
+    width: 30%;
+    height: 15%;
+    transition: all 0.5s;
+    cursor: pointer;
+    float: right;
+}
+
+.btn-arrow-right:hover
+{
+    background-color: rgb(25, 58, 26);
+    box-shadow: 0 12px 16px 0 rgba(76, 175, 80, 0.3), 0 17px 50px 0 rgba(76, 175, 80, 0.3);
+}
+
+.btn-arrow-right span
+{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn-arrow-right span:after
+{
+    content: '\00ab';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.btn-arrow-right:hover span
+{
+    padding-right: 25px;
+}
+
+.btn-arrow-right:hover span:after
+{
+    opacity: 1;
+    right: 0;
+}
+
+h5.message
+{
+    text-shadow: 3px 5px 8px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
