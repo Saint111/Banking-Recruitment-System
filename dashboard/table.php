@@ -11,6 +11,7 @@ session_start();
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/dashboard.css">
         <link rel="stylesheet" href="../css/superhero.bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
               integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <title>Recruitment Dashboard</title>
@@ -176,11 +177,12 @@ session_start();
                                                     value="<?php echo htmlentities($row -> Course) ?>" readonly>
                                             </td>
                                                 <td>
-                                                    <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
-                                                    <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
-                                                            data-toggle="modal" data-target="#view">
-                                                        View
-                                                    </button>
+                                                    <form action="view.php" method="post">
+                                                        <input type="hidden" name="information" value="<?php echo htmlentities($row -> Application_ID) ?>">
+                                                        <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal">
+                                                            View
+                                                        </button>
+                                                    </form>
                                                 </td>
                                                 <td>
                                                     <form action="integrate.php" method="post">
@@ -313,27 +315,83 @@ session_start();
                         ?>
                     </div>
                     <div class="modal-footer">
-                        <p></p>
+                        <button data-dismiss="modal" class="m-auto btn btn-warning">
+                            Confirm
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
         <?php
         /**
-         * @desc This is to view information.
+         * @desc This modal is for view information.
          */
         ?>
         <div id="view" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header bg-success text-white">
-                        <h1 class="modal-title">Information Application</h1>
+                    <div class="modal-header bg-success">
+                        <h1 class="modal-title">Applicant Information</h1>
                         <button class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
+                        <?php
+                        if (isset($_GET['Data'])):
+                            $data = $_GET['Data'];
+                            $sql = 'select * from application where Application_ID = :id';
+                            $statement = $connection -> prepare($sql);
+                            $statement -> execute(array(':id' => $data));
+                            $fetch = $statement -> fetchAll(PDO::FETCH_NUM);
+                            foreach ($fetch as $row):
+                                ?>
+                                <div class="container">
+                                    <div class="row m-auto">
+                                        <div class="col-sm-12">
+                                            <label for="name" class="m-auto">Applicant Name:</label>
+                                            <input id="name" type="text" class="btn btn-outline-success form-control"
+                                                value="<?php echo htmlentities($row['2']) ?>" readonly>
+                                            <label for="gender" class="m-auto">Gender:</label>
+                                            <input id="gender" type="text" class="btn btn-outline-success form-control"
+                                                value="<?php echo htmlentities($row['6']) ?>" readonly>
+                                            <label for="age" class="m-auto">Age:</label>
+                                            <input id="age" type="text" class="btn btn-outline-success form-control"
+                                                value="<?php echo htmlentities($row['7']) ?>" readonly>
+                                            <label for="birth" class="m-auto">Birth Date:</label>
+                                            <input id="birth" type="text" class="btn btn-outline-success form-control"
+                                                value="<?php echo htmlentities($row['8']) ?>" readonly>
+                                            <label for="address" class="m-auto">Email Address:</label>
+                                            <input id="address" type="text" class="btn btn-outline-success form-control"
+                                                   value="<?php echo htmlentities($row['3']) ?>" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="row m-auto">
+                                        <div class="col-sm-12">
+                                            <label for="name" class="m-auto">Address:</label>
+                                            <input id="name" type="text" class="form-control btn btn-outline-success"
+                                                value="<?php echo htmlentities($row['5']) ?>" readonly>
+
+                                        </div>
+                                    </div>
+                                    <div class="row m-auto">
+                                        <div class="col-sm-12">
+                                            <label for="tertiary" class="m-auto">Tertiary Education:</label>
+                                            <input id="tertiary" type="text" class="form-control btn btn-outline-success"
+                                                   value="<?php echo htmlentities($row[11]) ?>" readonly>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label for="course" class="m-auto">Course:</label>
+                                            <input id="course" type="text" class="form-control btn btn-outline-success"
+                                                   value="<?php echo htmlentities($row[15]) ?>" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
                     </div>
                     <div class="modal-footer">
-                        <p></p>
+                        <button class="btn btn-warning form-control m-auto" data-dismiss="modal">Confirm</button>
                     </div>
                 </div>
             </div>
@@ -364,6 +422,10 @@ session_start();
             if (isset($_GET['Accept']) == 'Success')
             {
                 echo "<script>$('#accept').modal('show')</script>";
+            }
+            if (isset($_GET['View']) == 'Information')
+            {
+                echo "<script>$('#view').modal('show')</script>";
             }
         ?>
     </body>
