@@ -29,23 +29,25 @@
         $tertiary = $_POST['tertiary'];
         $secondary = $_POST['secondary'];
         $primary = $_POST['primary'];
+        $course = $_POST['course'];
 
         if (empty($job) or empty($surname) or empty($name) or empty($initial) or empty($address)
             or empty($number) or empty($email) or empty($gender) or empty($age) or empty($birth)
-            or empty($height) or empty($weight) or empty($tertiary) or empty($secondary) or empty($primary))
+            or empty($height) or empty($weight) or empty($tertiary) or empty($secondary) or empty($primary)
+            or empty($course))
         {
             header('Location: ../apply.php?Job='.$job.'&Error=Empty&'.
                 "&Surname=$surname&Name=$name&Initial=$initial&Address=$address".
-                "&Age=$age&Birth=$birth&Height=$height&Weight=$weight".
-                "&Tertiary=$tertiary&Secondary=$secondary&Primary=$primary");
+                "&Age=$age&Birth=$birth&Height=$height&Weight=$weight&Tertiary=$tertiary".
+                "&Secondary=$secondary&Primary=$primary&Course=$course");
             exit;
         }
         else
         {
             $complete = "$surname, $name $initial.";
-            $sql = 'insert into application(Job_Applied, Full_Name, Address, Mobile_Number, Email_Address, '.
-                   'Gender, Age, Birth_Date, Height, Weight, Tertiary_Education, Secondary_Education, Primary_Education) '.
-                   'values (:A, :B, :C, :D, :E, :F, :G, :H, :I, :J, :K, :L, :M)';
+            $sql = 'insert into application(Job_Applied, Full_Name, Address, Mobile_Number, Email_Address, Gender,'.
+                   'Age, Birth_Date, Height, Weight, Tertiary_Education, Secondary_Education, Primary_Education, Course) '.
+                   'values (:A, :B, :C, :D, :E, :F, :G, :H, :I, :J, :K, :L, :M, :N)';
             $statement = $connection -> prepare($sql);
             $statement -> bindParam(':A', $job );
             $statement -> bindParam(':B', $complete );
@@ -60,6 +62,7 @@
             $statement -> bindParam(':K', $tertiary );
             $statement -> bindParam(':L', $secondary );
             $statement -> bindParam(':M', $primary );
+            $statement -> bindParam(':N', $course );
             $statement -> execute();
             header('Location: ../index.php?Apply=Success');
             exit;

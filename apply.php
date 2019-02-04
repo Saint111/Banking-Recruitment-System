@@ -121,7 +121,7 @@
                                                         maxlength="9" class="form-control border-success">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 mb-3">
                                                 <div class="form-group">
                                                     <label for="email">Email Address:</label>
                                                     <input type="text" name="email" id="email" placeholder="Please enter your email..."
@@ -149,7 +149,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-3">
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="age">Your Age:</label>
@@ -185,10 +185,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-12">
-                                                <div class="card-header border-success">
+                                                <div class="card-header border-success mb-3">
                                                     <h5>Educational Background:</h5>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row mb-3">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
                                                             <label for="tertiary">Tertiary Education:</label>
@@ -213,6 +213,13 @@
                                                                 value="<?php if (isset($_GET['Primary'])){ echo $_GET['Primary'];} ?>">
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="card-header border-success mb-3">
+                                                    <h5 class="d-inline">Course Finished:</h5>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="text" name="course" id="course" placeholder="Please enter your course..."
+                                                        class="form-control border-success" value="<?php if (isset($_GET['Course'])){ echo $_GET['Course'];}?>">
                                                 </div>
                                             </div>
                                         </div>
