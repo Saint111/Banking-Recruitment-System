@@ -146,45 +146,52 @@ session_start();
                                             $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
                                             foreach ($fetch as $row):
                                     ?>
-                                    <tr class="text-center">
-                                        <td>
-                                            <input type="text" class="btn btn-outline-success p-1 m-0 text-white"
-                                                   value="<?php echo htmlentities($row -> Job_Applied) ?>" disabled>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="btn btn-outline-success p-1 text-white"
-                                                   value="<?php echo htmlentities($row -> Full_Name) ?>" disabled>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="btn btn-outline-success p-1 text-white"
-                                                   value="<?php echo htmlentities($row -> Gender) ?>" disabled>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="btn btn-outline-success p-1 text-white"
-                                                   value="<?php echo htmlentities($row -> Mobile_Number) ?>" disabled>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="btn btn-outline-success p-1 text-white"
-                                                   value="<?php echo htmlentities($row -> Email_Address) ?>" disabled>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="btn btn-outline-success p-1 text-white"
-                                                   value="<?php echo htmlentities($row -> Date_Applied) ?>" disabled>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="btn btn-outline-success p-1 text-white text-wrap"
-                                                   value="<?php echo htmlentities($row -> Course) ?>" disabled>
-                                        </td>
-                                        <td>
-                                            <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
-                                            <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
-                                                    data-toggle="modal" data-target="#view">
-                                                View
-                                            </button>
-                                        </td>
-                                        <td><button class="btn btn-outline-success">Accept</button></td>
-                                        <td><button class="btn btn-outline-danger">Denied</button></td>
-                                    </tr>
+                                        <tr class="text-center">
+                                            <td>
+                                                <input type="text" name="job" class="btn btn-outline-success p-1 m-0 text-white"
+                                                    value="<?php echo htmlentities($row -> Job_Applied) ?>" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="name" class="btn btn-outline-success p-1 text-white"
+                                                    value="<?php echo htmlentities($row -> Full_Name) ?>" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="gender" class="btn btn-outline-success p-1 text-white"
+                                                    value="<?php echo htmlentities($row -> Gender) ?>" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="number" class="btn btn-outline-success p-1 text-white"
+                                                    value="<?php echo htmlentities($row -> Mobile_Number) ?>" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="email" class="btn btn-outline-success p-1 text-white"
+                                                    value="<?php echo htmlentities($row -> Email_Address) ?>" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="date" class="btn btn-outline-success p-1 text-white"
+                                                    value="<?php echo htmlentities($row -> Date_Applied) ?>" readonly>
+                                            </td>
+                                            <td>
+                                                <input type="text" name="course" class=" btn btn-outline-success p-1 text-white text-wrap"
+                                                    value="<?php echo htmlentities($row -> Course) ?>" readonly>
+                                            </td>
+                                                <td>
+                                                    <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
+                                                    <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
+                                                            data-toggle="modal" data-target="#view">
+                                                        View
+                                                    </button>
+                                                </td>
+                                                <td>
+                                                    <form action="integrate.php" method="post">
+                                                        <input type="hidden" name="information" value="<?php echo htmlentities($row -> Application_ID) ?>">
+                                                        <button type="submit" name="accept" class="btn btn-outline-success">
+                                                            Accept
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                                <td><button class="btn btn-outline-danger">Denied</button></td>
+                                            </tr>
                                     <?php
                                             endforeach;
                                         endif;
@@ -196,6 +203,7 @@ session_start();
                     </div>
                 </div>
                 <div class="line"></div>
+                <form action="integrate.php" method="post" id="integrate"></form>
             </div>
         </div>
         <?php
@@ -315,47 +323,47 @@ session_start();
                                 if ($statement -> rowCount() > 0):
                                     $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
                                     foreach ($fetch as $row):
-                                        ?>
-                                        <tr class="text-center">
-                                            <td>
-                                                <input type="text" class="btn btn-outline-success p-0 m-0 text-white"
-                                                       value="<?php echo htmlentities($row -> Job_Applied) ?>" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="btn btn-outline-success p-0 text-white"
-                                                       value="<?php echo htmlentities($row -> Full_Name) ?>" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="btn btn-outline-success p-0 text-white"
-                                                       value="<?php echo htmlentities($row -> Gender) ?>" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="btn btn-outline-success p-0 text-white"
-                                                       value="<?php echo htmlentities($row -> Mobile_Number) ?>" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="btn btn-outline-success p-0 text-white"
-                                                       value="<?php echo htmlentities($row -> Email_Address) ?>" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="btn btn-outline-success p-0 text-white"
-                                                       value="<?php echo htmlentities($row -> Date_Applied) ?>" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="btn btn-outline-success p-0 text-white text-wrap"
-                                                       value="<?php echo htmlentities($row -> Course) ?>" disabled>
-                                            </td>
-                                            <td>
-                                                <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
-                                                <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
-                                                        data-toggle="modal" data-target="#view">
-                                                    View
-                                                </button>
-                                            </td>
-                                            <td><button class="btn btn-outline-success">Accept</button></td>
-                                            <td><button class="btn btn-outline-danger">Denied</button></td>
-                                        </tr>
-                                    <?php
+                            ?>
+                            <tr class="text-center">
+                                <td>
+                                    <input type="text" class="btn btn-outline-success p-0 m-0 text-white"
+                                        value="<?php echo htmlentities($row -> Job_Applied) ?>" readonly>
+                                </td>
+                                <td>
+                                    <input type="text" class="btn btn-outline-success p-0 text-white"
+                                           value="<?php echo htmlentities($row -> Full_Name) ?>" readonly>
+                                </td>
+                                <td>
+                                    <input type="text" class="btn btn-outline-success p-0 text-white"
+                                           value="<?php echo htmlentities($row -> Gender) ?>" readonly>
+                                </td>
+                                <td>
+                                    <input type="text" class="btn btn-outline-success p-0 text-white"
+                                           value="<?php echo htmlentities($row -> Mobile_Number) ?>" readonly>
+                                </td>
+                                <td>
+                                    <input type="text" class="btn btn-outline-success p-0 text-white"
+                                           value="<?php echo htmlentities($row -> Email_Address) ?>" readonly>
+                                </td>
+                                <td>
+                                    <input type="text" class="btn btn-outline-success p-0 text-white"
+                                           value="<?php echo htmlentities($row -> Date_Applied) ?>" readonly>
+                                </td>
+                                <td>
+                                    <input type="text" class="btn btn-outline-success p-0 text-white text-wrap"
+                                           value="<?php echo htmlentities($row -> Course) ?>" readonly>
+                                </td>
+                                <td>
+                                    <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
+                                    <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
+                                            data-toggle="modal" data-target="#view">
+                                        View
+                                    </button>
+                                </td>
+                                    <td><button class="btn btn-outline-success">Accept</button></td>
+                                    <td><button class="btn btn-outline-danger">Denied</button></td>
+                            </tr>
+                            <?php
                                     endforeach;
                                 endif;
                             ?>
