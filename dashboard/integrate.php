@@ -51,7 +51,7 @@ else
                         $sql = 'insert into management values (null, ?, ?, ?, ?, ?, ?, ?)';
                         $statement = $connection -> prepare($sql);
                         $statement -> execute($data);
-                        header('Location: table.php?Accept=Success');
+                        header('Location: table.php?Accept=Success&Name='.$data['1']);
                         exit;
                     }
                 }

@@ -290,85 +290,27 @@ session_start();
         </div>
         <?php
         /**
-         * @desc This is to view table modal.
+         * @desc This is for the accept success.
          */
         ?>
-        <div id="table" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div id="accept" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-success text-white">
-                        <h1 class="modal-title">Request Application</h1>
+                        <h1 class="modal-title">Application Accepted</h1>
                         <button class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <table class="table table-hover table-responsive">
-                            <thead class="table-active">
-                            <tr class="text-center">
-                                <th>Job Applied</th>
-                                <th>Name of Applicant</th>
-                                <th>Gender</th>
-                                <th>Mobile Number</th>
-                                <th>Email Address</th>
-                                <th>Date Applied</th>
-                                <th>Course</th>
-                                <th>Information</th>
-                                <th>Accept</th>
-                                <th>Denied</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                                $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied, Course from application';
-                                $statement = $connection -> query($sql);
-                                if ($statement -> rowCount() > 0):
-                                    $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
-                                    foreach ($fetch as $row):
-                            ?>
-                            <tr class="text-center">
-                                <td>
-                                    <input type="text" class="btn btn-outline-success p-0 m-0 text-white"
-                                        value="<?php echo htmlentities($row -> Job_Applied) ?>" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" class="btn btn-outline-success p-0 text-white"
-                                           value="<?php echo htmlentities($row -> Full_Name) ?>" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" class="btn btn-outline-success p-0 text-white"
-                                           value="<?php echo htmlentities($row -> Gender) ?>" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" class="btn btn-outline-success p-0 text-white"
-                                           value="<?php echo htmlentities($row -> Mobile_Number) ?>" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" class="btn btn-outline-success p-0 text-white"
-                                           value="<?php echo htmlentities($row -> Email_Address) ?>" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" class="btn btn-outline-success p-0 text-white"
-                                           value="<?php echo htmlentities($row -> Date_Applied) ?>" readonly>
-                                </td>
-                                <td>
-                                    <input type="text" class="btn btn-outline-success p-0 text-white text-wrap"
-                                           value="<?php echo htmlentities($row -> Course) ?>" readonly>
-                                </td>
-                                <td>
-                                    <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
-                                    <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
-                                            data-toggle="modal" data-target="#view">
-                                        View
-                                    </button>
-                                </td>
-                                    <td><button class="btn btn-outline-success">Accept</button></td>
-                                    <td><button class="btn btn-outline-danger">Denied</button></td>
-                            </tr>
-                            <?php
-                                    endforeach;
-                                endif;
-                            ?>
-                            </tbody>
-                        </table>
+                        <?php
+                            if (isset($_GET['Name'])):
+                                $name = $_GET['Name'];
+                                ?>
+                                    <h3>
+                                        The application of <?php echo $name?> has been successfully submitted.
+                                    </h3>
+                                <?php
+                            endif;
+                        ?>
                     </div>
                     <div class="modal-footer">
                         <p></p>
@@ -418,6 +360,10 @@ session_start();
             if (isset($_GET['Access']) == 'Success')
             {
                 echo "<script>$('#welcome').modal('show')</script>";
+            }
+            if (isset($_GET['Accept']) == 'Success')
+            {
+                echo "<script>$('#accept').modal('show')</script>";
             }
         ?>
     </body>
