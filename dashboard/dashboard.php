@@ -46,8 +46,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="text-dark" data-toggle="modal" data-target="#table">
-                            View Applied Table
+                        <a href="dashboard.php" class="text-dark">
+                            View Job Posting
+                        </a>
+                    </li>
+                    <li>
+                        <a href="table.php" class="text-dark">
+                            Job Applicant Table
                         </a>
                     </li>
                     <li>
@@ -238,6 +243,7 @@
                                     <th>Mobile Number</th>
                                     <th>Email Address</th>
                                     <th>Date Applied</th>
+                                    <th>Course</th>
                                     <th>Information</th>
                                     <th>Accept</th>
                                     <th>Denied</th>
@@ -245,27 +251,47 @@
                             </thead>
                             <tbody>
                             <?php
-                                $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied from application';
+                                $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied, Course from application';
                                 $statement = $connection -> query($sql);
                                 if ($statement -> rowCount() > 0):
                                     $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
                                     foreach ($fetch as $row):
                             ?>
                                 <tr class="text-center">
-                                    <td><?php echo htmlentities($row -> Job_Applied) ?></td>
-                                    <td><?php echo htmlentities($row -> Full_Name) ?></td>
-                                    <td><?php echo htmlentities($row -> Gender) ?></td>
-                                    <td><?php echo htmlentities($row -> Mobile_Number) ?></td>
-                                    <td><?php echo htmlentities($row -> Email_Address) ?></td>
-                                    <td><?php echo htmlentities($row -> Date_Applied) ?></td>
                                     <td>
-                                        <form action="dashboard.php" method="get">
-                                            <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
-                                            <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
-                                                    data-toggle="modal" data-target="#view">
-                                                View
-                                            </button>
-                                        </form>
+                                        <input type="text" class="btn btn-outline-success p-0 m-0 text-white"
+                                            value="<?php echo htmlentities($row -> Job_Applied) ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="btn btn-outline-success p-0 text-white"
+                                            value="<?php echo htmlentities($row -> Full_Name) ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="btn btn-outline-success p-0 text-white"
+                                               value="<?php echo htmlentities($row -> Gender) ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="btn btn-outline-success p-0 text-white"
+                                               value="<?php echo htmlentities($row -> Mobile_Number) ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="btn btn-outline-success p-0 text-white"
+                                               value="<?php echo htmlentities($row -> Email_Address) ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="btn btn-outline-success p-0 text-white"
+                                               value="<?php echo htmlentities($row -> Date_Applied) ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="text" class="btn btn-outline-success p-0 text-white text-wrap"
+                                               value="<?php echo htmlentities($row -> Course) ?>" disabled>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" name="information" value="<?php htmlentities($row -> Application_ID) ?>">
+                                        <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal"
+                                                data-toggle="modal" data-target="#view">
+                                            View
+                                        </button>
                                     </td>
                                     <td><button class="btn btn-outline-success">Accept</button></td>
                                     <td><button class="btn btn-outline-danger">Denied</button></td>

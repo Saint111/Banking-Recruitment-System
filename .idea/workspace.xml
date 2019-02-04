@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2ca547e-20e8-4c61-a907-d09114c0d9f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apply.php" beforeDir="false" afterPath="$PROJECT_DIR$/apply.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/submit.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/submit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/table.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/table.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,13 +35,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="4" />
+          <entry key="PHP" value="7" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="282" />
+          <entry key="PHP" value="502" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="Scratch" value="9" />
         </counts>
@@ -54,31 +53,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashboard/dashboard.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="63" column="32" lean-forward="true" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+            <state relative-caret-position="275">
+              <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apply.php">
+        <entry file="file://$PROJECT_DIR$/dashboard/table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="225" column="42" lean-forward="true" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="42" />
+            <state relative-caret-position="312">
+              <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+              <folding>
+                <element signature="e#7515#7579#0#PHP" expanded="true" />
+                <element signature="e#15470#15531#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/functions/submit.php">
+        <entry file="file://$PROJECT_DIR$/dashboard/posting.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state relative-caret-position="115">
+              <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -94,6 +92,8 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/f964121c-4730-4b71-b379-40a7a62191b5/console.sql" />
         <option value="$PROJECT_DIR$/functions/submit.php" />
         <option value="$PROJECT_DIR$/apply.php" />
+        <option value="$PROJECT_DIR$/dashboard/dashboard.php" />
+        <option value="$PROJECT_DIR$/dashboard/table.php" />
       </list>
     </option>
   </component>
@@ -132,7 +132,7 @@
             <path>
               <item name="Banking-Recruitment-System" type="b2602c69:ProjectViewProjectNode" />
               <item name="Banking-Recruitment-System" type="462c0819:PsiDirectoryNode" />
-              <item name="functions" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -172,25 +172,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549277111708</updated>
-      <workItem from="1549277116449" duration="2962000" />
+      <workItem from="1549277116449" duration="6483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2962000" />
+    <option name="totallyTimeSpent" value="6483000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="PHP-CGI Server" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.5016779" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" weight="0.4295302" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -213,16 +213,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dashboard/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="63" column="32" lean-forward="true" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f964121c-4730-4b71-b379-40a7a62191b5/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -230,17 +220,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/submit.php">
+    <entry file="file://$PROJECT_DIR$/apply.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        <state relative-caret-position="23">
+          <caret line="219" column="72" lean-forward="true" selection-start-line="219" selection-start-column="72" selection-end-line="219" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apply.php">
+    <entry file="file://$PROJECT_DIR$/functions/submit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="225" column="42" lean-forward="true" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="42" />
+        <state relative-caret-position="231">
+          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/posting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashboard/table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+          <folding>
+            <element signature="e#7515#7579#0#PHP" expanded="true" />
+            <element signature="e#15470#15531#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
