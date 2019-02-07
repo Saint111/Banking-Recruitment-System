@@ -117,8 +117,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="number">Mobile Number:</label>
-                                                    <input type="text" name="number" id="number" placeholder="Please enter your number..."
-                                                        maxlength="9" class="form-control border-success">
+                                                    <input type="number" name="number" id="number" placeholder="Please enter your number..."
+                                                        min="10000000000" max="20000000000" maxlength="9" class="form-control border-success">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
@@ -153,7 +153,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="age">Your Age:</label>
-                                                    <input type="text" name="age" id="age" placeholder="Age..."
+                                                    <input type="text" name="age" id="age" placeholder="Age..." maxlength="2"
                                                         class="form-control-sm border-success"
                                                         value="<?php if (isset($_GET['Age'])){ echo $_GET['Age'];} ?>">
                                                 </div>
@@ -161,7 +161,7 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="birth">Birth Date:</label>
-                                                    <input type="text" name="birth" id="birth" placeholder="Birth Date..."
+                                                    <input type="date" name="birth" id="birth" placeholder="Birth Date..."
                                                         class="form-control-sm border-success"
                                                         value="<?php if (isset($_GET['Birth'])){ echo $_GET['Birth'];} ?>">
                                                 </div>

@@ -40,13 +40,13 @@
                 </div>
             </li>
         </ul>
-        <form action="search.php" class="form-inline" method="get">
+        <form action="search.php" method="get" class="form-inline">
             <div class="form-group">
                 <div class="input-group">
-                    <input type="search" name="search" placeholder="Search jobs by name or skills..."
+                    <input type="text" name="search" placeholder="Search jobs by name or skills..."
                            class="form-control rounded-0">
                     <div class="input-group-prepend">
-                        <button type="submit" name="search" class="btn btn-outline-light rounded-0">
+                        <button type="submit" class="btn btn-outline-light rounded-0">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -55,56 +55,64 @@
         </form>
         <ul class="navbar-nav ml-auto">
             <?php
-            if (isset($_SESSION['username']) && isset($_SESSION['email']))
-            {
-                $username = $_SESSION['username'];
-                $email = $_SESSION['email'];
-
-                echo '<li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#login" role="button">
+                if (isset($_SESSION['username']) && isset($_SESSION['email']))
+                {
+                    $username = $_SESSION['username'];
+                    $email = $_SESSION['email'];
+                    ?>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#login" role="button">
                                 <i class="fas fa-user-circle"></i> Welcome, <strong class="d-inline">'.$username.'</strong>
+                            </a>
+                        </li>
+                    <?php
+
+                    if (isset($_SESSION['role']))
+                    {
+                        $role = $_SESSION['role'];
+                        ?>
+                            <li class="nav-item">
+                                <a href="./dashboard/dashboard.php" class="btn btn-outline-light rounded-0">
+                                    <i class="fas fa-plus-circle"></i> Dashboard
                                 </a>
-                              </li>';
-
-                if (isset($_SESSION['role']))
-                {
-                    $role = $_SESSION['role'];
-                    echo '<li class="nav-item">
-                                    <a href="./dashboard/dashboard.php" class="btn btn-outline-light rounded-0">
-                                        <i class="fas fa-plus-circle"></i> Dashboard
-                                    </a>
-                                  </li>';
-                }
-                else
-                {
-                    echo '<li class="nav-item">
-                                    <a href="#" class="btn btn-outline-light rounded-0">
-                                        <i class="fas fa-plus-circle"></i> User Profile
-                                    </a>
-                                  </li>';
-                }
-
-                echo '<li class="nav-item">
+                            </li>
+                        <?php
+                    }
+                    else
+                    {
+                        ?>
+                            <li class="nav-item">
+                                <a href="#" class="btn btn-outline-light rounded-0">
+                                    <i class="fas fa-plus-circle"></i> User Profile
+                                </a>
+                            </li>
+                        <?php
+                    }
+                        ?>
+                            <li class="nav-item">
                                 <form action="functions/logout.php" method="post" class="form-inline">
                                     <button type="submit" name="logout" class="btn btn-outline-light rounded-0" role="button">
                                         <i class="fas fa-sign-out-alt"></i> Logout
                                     </button>
                                 </form>
-                              </li>';
-            }
-            else
-            {
-                echo '<li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#login" role="button">
-                                    <i class="fas fa-sign-in-alt"></i> Login
-                                </a>
-                              </li>';
-                echo '<li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#register" role="button">
-                                    <i class="fas fa-edit"></i> Sign up
-                                </a>
-                              </li>';
-            }
+                            </li>
+                        <?php
+                }
+                else
+                {
+                    ?>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#login" role="button">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#register" role="button">
+                                <i class="fas fa-edit"></i> Sign up
+                            </a>
+                        </li>
+                    <?php
+                }
             ?>
         </ul>
     </div>

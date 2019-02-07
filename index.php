@@ -53,11 +53,13 @@
                     <div class="card my-3">
                         <div class="card-header text-white bg-success">
                             <card class="title"><h1>Job Postings</h1></card>
+                            <!--
                             <ul class="nav nav-tabs card-header-tabs">
                                 <li class="nav-item active"><a href="#" class="nav-link">News</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Events</a></li>
                                 <li class="nav-item"><a href="#" class="nav-link">Seminars</a></li>
                             </ul>
+                            -->
                         </div>
                         <div class="card-body">
                             <div class="container">
