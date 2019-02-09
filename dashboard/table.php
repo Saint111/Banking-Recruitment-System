@@ -168,14 +168,14 @@ session_start();
                                                         case 'Accepted':
                                                             ?>
                                                                 <button type="submit" name="accept" class="btn btn-success" disabled>
-                                                                    Accepted
+                                                                    <i class="far fa-thumbs-up"></i> Accepted
                                                                 </button>
                                                             <?php
                                                             break;
                                                         case 'Denied':
                                                             ?>
                                                                 <button type="submit" name="accept" class="btn btn-danger" disabled>
-                                                                    Denied
+                                                                    <i class="far fa-thumbs-down"></i> Denied
                                                                 </button>
                                                             <?php
                                                             break;
@@ -348,6 +348,38 @@ session_start();
         </div>
         <?php
         /**
+         * @desc This is for the denied success.
+         */
+        ?>
+        <div id="denied" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h1 class="modal-title">Application Denied</h1>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <?php
+                        if (isset($_GET['Name'])):
+                            $name = $_GET['Name'];
+                            ?>
+                            <h3>
+                                The application of <?php echo $name?> has been denied.
+                            </h3>
+                        <?php
+                        endif;
+                        ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="m-auto btn btn-warning">
+                            Confirm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        /**
          * @desc This modal is for view information.
          */
         ?>
@@ -410,13 +442,12 @@ session_start();
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <form action=""></form>
-                            <button type="submit" name="submit"
-                                class="btn btn-danger form-control" data-dismiss="modal">
+                            <button type="submit" class="btn btn-danger form-control" data-dismiss="modal"
+                                onclick="location.href=('deny.php?<?php echo 'ID='.htmlentities($row[0]);?>')">
                                 Deny Application
                             </button>
-                            <button type="submit" name="submit" form="accept" class="btn btn-success form-control"
-                                data-dismiss="modal" onclick="location.href=('accept.php?<?php echo 'ID='.htmlentities($row[0]);?>')">
+                            <button name="submit" class="btn btn-success form-control" data-dismiss="modal"
+                                onclick="location.href=('accept.php?<?php echo 'ID='.htmlentities($row[0]);?>')">
                                 Accept Application
                             </button>
                         </div>
@@ -453,6 +484,10 @@ session_start();
             if (isset($_GET['Accept']) == 'Success')
             {
                 echo "<script>$('#accept').modal('show')</script>";
+            }
+            if (isset($_GET['Denied']) == 'Success')
+            {
+                echo "<script>$('#denied').modal('show')</script>";
             }
             if (isset($_GET['View']) == 'Information')
             {
