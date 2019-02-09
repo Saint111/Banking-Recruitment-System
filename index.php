@@ -93,8 +93,10 @@
                                                     }
                                                     else
                                                     {
-                                                        echo '<button class="btn btn-warning form-control" data-toggle="modal" 
-                                                              data-target="#apply">Apply Now</button>';
+                                                        ?>
+                                                            <button class="btn btn-warning form-control" data-toggle="modal"
+                                                                data-target="#apply">Apply Now</button>
+                                                        <?php
                                                     }
                                                 ?>
                                             </div>

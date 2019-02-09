@@ -1,17 +1,16 @@
-<div class="jumbotron jumbotron-fluid mb-0">
+<div class="jumbotron jumbotron-fluid mt-5 mb-0">
     <div class="container">
         <h3 class="display-3">HR1: Recruitment System</h3>
-        <hr/>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quod!</p>
+        <p class="lead">Success is not final; failure is not fatal: It is the courage to continue that counts.</p>
     </div>
 </div>
-<nav class="navbar navbar-expand-xl navbar-dark bg-success" role="navigation">
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#menus">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a href="index.php" class="navbar-brand">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" role="navigation">
+    <a href="index.php" class="navbar-brand mr-md-auto">
         <img src="images/Bank.png" alt="Bank Icon">Banking Recruitment
     </a>
+    <button class="navbar-toggler ml-md-auto" data-toggle="collapse" data-target="#menus">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="menus">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">

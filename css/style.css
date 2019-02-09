@@ -4,17 +4,21 @@
     background-size: cover;
 }
 
-.jumbotron h3
+.jumbotron .container h3, p
 {
     color: white;
     text-shadow: 1px 0 30px rgba(0, 0, 0, 1), 1px 0 30px rgba(0, 0, 0, 1), 1px 0 30px rgba(0, 0, 0, 1);
+}
+
+.navbar
+{
+    box-shadow: 0 5px 20px 5px rgba(0, 0, 0, 0.5);
 }
 
 .input-group input[name='search']
 {
     width: 300px;
 }
-
 /*------------------------------This is animated button---------------------------------*/
 .btn-arrow-right
 {
