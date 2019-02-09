@@ -16,36 +16,44 @@
                         <form action="functions/login.php" method="post" id="access">
                             <div class="form-group">
                                 <?php
-                                if (isset($_GET['Login']) == 'Username')
-                                {
-                                    echo '<label for="username">Username:</label>
-                                                  <input type="text" name="log1" placeholder="Please enter username or email address..."
-                                                    class="form-control border-danger" id="username">
-                                                    <span class="text-danger">Forget to enter username.</span>';
-                                }
-                                else
-                                {
-                                    echo '<label for="username">Username:</label>
-                                                  <input type="text" name="log1" placeholder="Please enter username or email address..."
-                                                    class="form-control border-success" id="username">';
-                                }
+                                    if (isset($_GET['Login']) == 'Username')
+                                    {
+                                        ?>
+                                            <label for="username">Username:</label>
+                                            <input type="text" name="log1" placeholder="Please enter username or email address..."
+                                                   class="form-control border-danger" id="username">
+                                            <span class="text-danger">Forget to enter username.</span>
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                            <label for="username">Username:</label>
+                                            <input type="text" name="log1" placeholder="Please enter username or email address..."
+                                                class="form-control border-success" id="username">
+                                        <?php
+                                    }
                                 ?>
                             </div>
                             <div class="form-group">
                                 <?php
-                                if (isset($_GET['Login']) == 'Password')
-                                {
-                                    echo '<label for="password">Password:</label>
-                                                      <input type="password" name="log2" placeholder="Please enter password..."
-                                                        class="form-control border-danger" id="password">
-                                                        <span class="text-danger">Forget to enter password.</span>';
-                                }
-                                else
-                                {
-                                    echo '<label for="password">Password:</label>
-                                                      <input type="password" name="log2" placeholder="Please enter password..."
-                                                        class="form-control border-success" id="password">';
-                                }
+                                    if (isset($_GET['Login']) == 'Password')
+                                    {
+                                        ?>
+                                            <label for="password">Password:</label>
+                                            <input type="password" name="log2" placeholder="Please enter password..."
+                                                   class="form-control border-danger" id="password">
+                                            <span class="text-danger">Forget to enter password.</span>
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                            <label for="password">Password:</label>
+                                            <input type="password" name="log2" placeholder="Please enter password..."
+                                               class="form-control border-success" id="password">
+                                        <?php
+                                    }
                                 ?>
                             </div>
                             <div class="form-check">
@@ -93,26 +101,26 @@
                                     {
                                         case 'Empty':
                                             echo '<input type="text" name="username" placeholder="Please enter username..."
-                                                                class="form-control text-success border-danger"';
+                                                                class="form-control text-dark border-danger"';
                                             break;
                                         case 'Invalid':
                                             echo '<input type="text" name="username" placeholder="Please enter username..."
-                                                                class="form-control text-success border-danger"';
+                                                                class="form-control text-dark border-danger"';
                                             break;
                                         case 'Long':
                                             echo '<input type="text" name="username" placeholder="Please enter username..."
-                                                                class="form-control text-success border-danger"';
+                                                                class="form-control text-dark border-danger"';
                                             break;
                                         default:
                                             echo '<input type="text" name="username" placeholder="Please enter username..."
-                                                                class="form-control text-success border-success" value="'.$username.'">';
+                                                                class="form-control text-dark border-success" value="'.$username.'">';
                                             break;
                                     }
                                 }
                                 else
                                 {
                                     echo '<input type="text" name="username" placeholder="Please enter username..."
-                                                        class="form-control text-success border-success">';
+                                                        class="form-control text-dark border-success">';
                                 }
                                 ?>
                             </div>
@@ -126,26 +134,26 @@
                                     {
                                         case 'Empty':
                                             echo '<input type="text" name="email" placeholder="Please enter email address..."
-                                                                class="form-control text-success border-danger"';
+                                                                class="form-control text-dark border-danger"';
                                             break;
                                         case 'Invalid':
                                             echo '<input type="text" name="email" placeholder="Please enter email address..."
-                                                                class="form-control text-success border-danger"';
+                                                                class="form-control text-dark border-danger"';
                                             break;
                                         case 'Long':
                                             echo '<input type="text" name="email" placeholder="Please enter email address..."
-                                                                class="form-control text-success border-danger"';
+                                                                class="form-control text-dark border-danger"';
                                             break;
                                         default:
                                             echo '<input type="text" name="email" placeholder="Please enter email address..."
-                                                                class="form-control text-success border-success" value="'.$email.'">';
+                                                                class="form-control text-dark border-success" value="'.$email.'">';
                                             break;
                                     }
                                 }
                                 else
                                 {
                                     echo '<input type="text" name="email" placeholder="Please enter email address..."
-                                                        class="form-control text-success border-success">';
+                                                        class="form-control text-dark border-success">';
                                 }
                                 ?>
                             </div>
@@ -158,27 +166,42 @@
                                     switch ($number)
                                     {
                                         case 'Empty':
-                                            echo '<input type="number" name="number" placeholder="Please enter contact number..."
-                                                                    maxlength="11" class="form-control text-success border-danger"';
+                                            ?>
+                                                <input type="text" name="number" placeholder="Please enter contact number..."
+                                                    maxlength="11" class="form-control text-dark border-danger" min="1000000000" max="99999999999"
+                                                    onKeyUp="if(this.value>99999999999){this.value='99999999999';}else if(this.value<0){this.value='0';}"
+                                            <?php
                                             break;
                                         case 'Invalid':
-                                            echo '<input type="number" name="number" placeholder="Please enter contact number..."
-                                                                    maxlength="11" class="form-control text-success border-danger"';
+                                            ?>
+                                                <input type="text" name="number" placeholder="Please enter contact number..."
+                                                   maxlength="11" class="form-control text-dark border-danger" min="1000000000" max="99999999999"
+                                                   onKeyUp="if(this.value>99999999999){this.value='99999999999';}else if(this.value<0){this.value='0';}">
+                                            <?php
                                             break;
                                         case 'Long':
-                                            echo '<input type="number" name="number" placeholder="Please enter contact number..."
-                                                                    maxlength="11" class="form-control text-success border-danger"';
+                                            ?>
+                                                <input type="text" name="number" placeholder="Please enter contact number..."
+                                                   maxlength="11" class="form-control text-dark border-danger" min="1000000000" max="99999999999"
+                                                   onKeyUp="if(this.value>99999999999){this.value='99999999999';}else if(this.value<0){this.value='0';}">
+                                            <?php
                                             break;
                                         default:
-                                            echo '<input type="number" name="number" placeholder="Please enter contact number..."
-                                                                    maxlength="11" class="form-control text-success border-success" value="'.$number.'">';
+                                            ?>
+                                                <input type="text" name="number" placeholder="Please enter contact number..."
+                                                   maxlength="11" class="form-control text-dark border-success" value="<?php echo $number?>" min="1000000000" max="99999999999"
+                                                   onKeyUp="if(this.value>99999999999){this.value='99999999999';}else if(this.value<0){this.value='0';}">
+                                            <?php
                                             break;
                                     }
                                 }
                                 else
                                 {
-                                    echo '<input type="text" name="number" placeholder="Please enter contact number..."
-                                                            maxlength="11" class="form-control text-success border-success">';
+                                    ?>
+                                        <input type="text" name="number" placeholder="Please enter contact number..."
+                                           maxlength="11" class="form-control text-dark border-success" min="1000000000" max="99999999999"
+                                           onKeyUp="if(this.value>99999999999){this.value='99999999999';}else if(this.value<0){this.value='0';}">
+                                    <?php
                                 }
                                 ?>
                             </div>
@@ -192,31 +215,33 @@
                                     {
                                         case 'Empty':
                                             echo '<input type="password" name="password" placeholder="Please enter password..."
-                                                                        class="form-control text-success border-danger"';
+                                                                        class="form-control text-dark border-danger"';
                                             break;
                                         case 'Invalid':
                                             echo '<input type="password" name="password" placeholder="Please enter password..."
-                                                                        class="form-control text-success border-danger"';
+                                                                        class="form-control text-dark border-danger"';
                                             break;
                                         case 'Long':
                                             echo '<input type="password" name="password" placeholder="Please enter password..."
-                                                                        class="form-control text-success border-danger"';
+                                                                        class="form-control text-dark border-danger"';
                                             break;
                                         default:
                                             echo '<input type="password" name="password" placeholder="Please enter password..."
-                                                                        class="form-control text-success border-success" value="'.$password.'">';
+                                                                        class="form-control text-dark border-success" value="'.$password.'">';
                                             break;
                                     }
                                 }
                                 else
                                 {
                                     echo '<input type="password" name="password" placeholder="Please enter password..."
-                                                                class="form-control text-success border-success">';
+                                                                class="form-control text-dark border-success">';
                                 }
                                 ?>
                             </div>
                         </form>
-                        <button type="submit" name="register" form="submit" class="btn btn-success btn-arrow-right">
+                    </div>
+                    <div class="modal-footer bg-secondary">
+                        <button type="submit" name="register" form="submit" class="btn btn-success btn-arrow-right m-auto">
                             <i class="fas fa-edit"></i> <span>Register </span>
                         </button>
                     </div>
@@ -356,9 +381,9 @@
                             ?>
                         </ul>
                     </div>
-                    <div class="modal-body alert alert-secondary my-0">
-                        <button class="btn btn-danger mx-auto" data-dismiss="modal" data-toggle="modal"
-                                data-target="#register">
+                    <div class="modal-body bg-secondary">
+                        <button class="btn btn-danger form-control m-auto" data-dismiss="modal" data-toggle="modal"
+                            data-target="#register">
                             <i class="far fa-check-circle"></i> Confirm
                         </button>
                     </div>

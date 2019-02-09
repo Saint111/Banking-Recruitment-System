@@ -102,13 +102,13 @@
                     ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link btn btn-outline-secondary w-100" data-toggle="modal"
-                                data-target="#login" role="button" style="border-radius: 30px 0 0 30px;">
+                                data-target="#login" role="button" style="border: 0;">
                                 <i class="fas fa-sign-in-alt"></i> Login
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link btn btn-outline-secondary w-100" data-toggle="modal"
-                                data-target="#register" role="button" style="border-radius: 0 30px 30px 0;">
+                                data-target="#register" role="button" style="border: 0;">
                                 <i class="fas fa-edit"></i> Sign up
                             </a>
                         </li>
