@@ -73,7 +73,15 @@
                                         ?>
                                         <div class="card border-success mb-3 w-100 d-block">
                                             <div class="card-header">
-                                                <h2><?php echo $row -> Job_Title?></h2>
+                                                <h2>
+                                                    <?php echo $row -> Job_Title?>
+                                                    <button class="btn btn-outline-warning">
+                                                        Vacancy:
+                                                        <span class="badge badge-danger badge-pill">
+                                                            <?php echo $row -> Vacancy?>
+                                                        </span>
+                                                    </button>
+                                                </h2>
                                             </div>
                                             <div class="card-body text-success">
                                                 <p class="card-text"><?php echo $row -> Description ?></p>

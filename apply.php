@@ -36,9 +36,9 @@
                                 while ($row = $statement -> fetch(PDO::FETCH_NUM))
                                 {
                                     ?>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><a href="#" class="btn btn-warning"><?php echo $row['1']?></a></li>
-                                    </ul>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item"><a href="#" class="btn btn-warning"><?php echo $row['1']?></a></li>
+                                        </ul>
                                     <?php
                                 }
                             endif;
@@ -83,24 +83,24 @@
                                                 <div class="form-group">
                                                     <label for="surname">Surname:</label>
                                                     <input type="text" name="surname" id="surname" placeholder="Please enter your surname..."
-                                                        class="form-control border-success"
-                                                        value="<?php if (isset($_GET['Surname'])){ echo $_GET['Surname'];} ?>">
+                                                        class="form-control border-success" onkeyup="javascript:Capitalize(this.id, this.value);"
+                                                        maxlength="18" value="<?php if (isset($_GET['Surname'])){ echo $_GET['Surname'];} ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="surname">Name:</label>
                                                     <input type="text" name="name" id="name" placeholder="Please enter your name..."
-                                                        class="form-control border-success"
-                                                        value="<?php if (isset($_GET['Name'])){ echo $_GET['Name'];} ?>">
+                                                        class="form-control border-success" onkeyup="javascript:Capitalize(this.id, this.value);"
+                                                        maxlength="18" value="<?php if (isset($_GET['Name'])){ echo $_GET['Name'];} ?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="initial">Middle Initial:</label>
                                                     <input type="text" name="initial" id="initial" placeholder="Please enter your middle initial..."
-                                                        class="form-control border-success"
-                                                           value="<?php if (isset($_GET['Initial'])){ echo $_GET['Initial'];} ?>">
+                                                        class="form-control border-success" onkeyup="Initial(this);" pattern="[A-Za-z]{1}"
+                                                        value="<?php if (isset($_GET['Initial'])){ echo $_GET['Initial'];} ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -153,8 +153,8 @@
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="age">Your Age:</label>
-                                                    <input type="text" name="age" id="age" placeholder="Age..." maxlength="2"
-                                                        class="form-control-sm border-success"
+                                                    <input type="number" name="age" id="age" maxlength="2" min="18" max="99"
+                                                        class="form-control-sm border-success w-100" placeholder="Age..."
                                                         value="<?php if (isset($_GET['Age'])){ echo $_GET['Age'];} ?>">
                                                 </div>
                                             </div>
@@ -162,7 +162,7 @@
                                                 <div class="form-group">
                                                     <label for="birth">Birth Date:</label>
                                                     <input type="date" name="birth" id="birth" placeholder="Birth Date..."
-                                                        class="form-control-sm border-success"
+                                                        class="form-control-sm border-success w-100"
                                                         value="<?php if (isset($_GET['Birth'])){ echo $_GET['Birth'];} ?>">
                                                 </div>
                                             </div>
@@ -170,7 +170,7 @@
                                                 <div class="form-group">
                                                     <label for="height">Height:</label>
                                                     <input type="text" name="height" id="height" placeholder="Height..."
-                                                        class="form-control-sm border-success"
+                                                        class="form-control-sm border-success w-100"
                                                         value="<?php if (isset($_GET['Height'])){ echo $_GET['Height'];} ?>">
                                                 </div>
                                             </div>
@@ -178,7 +178,7 @@
                                                 <div class="form-group">
                                                     <label for="weight">Weight:</label>
                                                     <input type="text" name="weight" id="weight" placeholder="Weight..."
-                                                        class="form-control-sm border-success"
+                                                        class="form-control-sm border-success w-100"
                                                         value="<?php if (isset($_GET['Weight'])){ echo $_GET['Weight'];} ?>">
                                                 </div>
                                             </div>
@@ -232,8 +232,8 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <button class="btn btn-warning">Some button.</button>
+                        <div class="card-footer h-25">
+
                         </div>
                     </div>
                 </div>
@@ -242,6 +242,24 @@
         <script src="js/jquery-3.3.1.slim.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script>
+            //This function will capitalize one string character.
+            function Capitalize(Input, Value)
+            {
+                if (Value && Value.length >= 1)
+                {
+                    var firstChar = Value.charAt(0);
+                    var remainingStr = Value.slice(1);
+                    Value = firstChar.toUpperCase() + remainingStr;
+                }
+                document.getElementById(Input).value = Value;
+            }
+            //This function will type first letter to capital and only 1 character.
+            function Initial(input)
+            {
+                input.value = input.value.replace(/\W|\d/g, '').substr(0, 1).toUpperCase();
+            }
+        </script>
         <?php
             require_once 'script.php';
         ?>
