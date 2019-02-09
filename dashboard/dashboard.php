@@ -77,10 +77,10 @@
                 </ul>
                 <ul class="list-unstyled CTAs">
                     <li>
-                        <a href="#" class="download">Download code</a>
+                        <a href="#" class="download">Download Information</a>
                     </li>
                     <li>
-                        <a href="#" class="article">article</a>
+                        <a href="#" class="article">Article</a>
                     </li>
                 </ul>
             </nav>

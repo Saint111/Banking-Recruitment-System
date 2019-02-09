@@ -78,10 +78,10 @@ session_start();
                 </ul>
                 <ul class="list-unstyled CTAs">
                     <li>
-                        <a href="#" class="download">Download code</a>
+                        <a href="#" class="download">Download Information</a>
                     </li>
                     <li>
-                        <a href="#" class="article">article</a>
+                        <a href="#" class="article">Article</a>
                     </li>
                 </ul>
             </nav>
@@ -126,6 +126,8 @@ session_start();
                                 <table class="table table-hover table-responsive">
                                     <thead class="table-active">
                                     <tr class="text-center">
+                                        <th>Information</th>
+                                        <th>Status</th>
                                         <th>Job Applied</th>
                                         <th>Name of Applicant</th>
                                         <th>Gender</th>
@@ -133,21 +135,60 @@ session_start();
                                         <th>Email Address</th>
                                         <th>Date Applied</th>
                                         <th>Course</th>
-                                        <th>Information</th>
-                                        <th>Accept</th>
-                                        <th>Denied</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                                         require_once '../functions/database.php';
-                                        $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied, Course from application';
+                                        $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied, Course, Status from application';
                                         $statement = $connection -> query($sql);
                                         if ($statement -> rowCount() > 0):
                                             $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
                                             foreach ($fetch as $row):
                                     ?>
                                         <tr class="text-center">
+                                            <td>
+                                                <form action="view.php" method="post">
+                                                    <input type="hidden" name="information" value="<?php echo htmlentities($row -> Application_ID) ?>">
+                                                    <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal">
+                                                        View
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                    switch (htmlentities($row -> Status)):
+                                                        case 'Pending':
+                                                            ?>
+                                                                <button type="submit" name="accept" class="btn btn-light" disabled>
+                                                                    Pending
+                                                                </button>
+                                                            <?php
+                                                            break;
+                                                        case 'Accepted':
+                                                            ?>
+                                                                <button type="submit" name="accept" class="btn btn-success" disabled>
+                                                                    Accepted
+                                                                </button>
+                                                            <?php
+                                                            break;
+                                                        case 'Denied':
+                                                            ?>
+                                                                <button type="submit" name="accept" class="btn btn-danger" disabled>
+                                                                    Denied
+                                                                </button>
+                                                            <?php
+                                                            break;
+                                                        default:
+                                                            ?>
+                                                                <button type="submit" name="accept" class="btn btn-dark" disabled>
+                                                                    No status
+                                                                </button>
+                                                            <?php
+                                                            break;
+                                                    endswitch;
+                                                ?>
+                                            </td>
                                             <td>
                                                 <input type="text" name="job" class="btn btn-outline-success p-1 m-0 text-white"
                                                     value="<?php echo htmlentities($row -> Job_Applied) ?>" readonly>
@@ -176,24 +217,7 @@ session_start();
                                                 <input type="text" name="course" class=" btn btn-outline-success p-1 text-white text-wrap"
                                                     value="<?php echo htmlentities($row -> Course) ?>" readonly>
                                             </td>
-                                                <td>
-                                                    <form action="view.php" method="post">
-                                                        <input type="hidden" name="information" value="<?php echo htmlentities($row -> Application_ID) ?>">
-                                                        <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal">
-                                                            View
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                                <td>
-                                                    <form action="integrate.php" method="post">
-                                                        <input type="hidden" name="information" value="<?php echo htmlentities($row -> Application_ID) ?>">
-                                                        <button type="submit" name="accept" class="btn btn-outline-success">
-                                                            Accept
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                                <td><button class="btn btn-outline-danger">Denied</button></td>
-                                            </tr>
+                                        </tr>
                                     <?php
                                             endforeach;
                                         endif;
@@ -330,69 +354,76 @@ session_start();
         <div id="view" class="modal fade" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-header bg-success">
-                        <h1 class="modal-title">Applicant Information</h1>
-                        <button class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <?php
+                    <?php
                         if (isset($_GET['Data'])):
                             $data = $_GET['Data'];
                             $sql = 'select * from application where Application_ID = :id';
                             $statement = $connection -> prepare($sql);
                             $statement -> execute(array(':id' => $data));
                             $fetch = $statement -> fetchAll(PDO::FETCH_NUM);
-                            foreach ($fetch as $row):
-                                ?>
-                                <div class="container">
-                                    <div class="row m-auto">
-                                        <div class="col-sm-12">
-                                            <label for="name" class="m-auto">Applicant Name:</label>
-                                            <input id="name" type="text" class="btn btn-outline-success form-control"
-                                                value="<?php echo htmlentities($row['2']) ?>" readonly>
-                                            <label for="gender" class="m-auto">Gender:</label>
-                                            <input id="gender" type="text" class="btn btn-outline-success form-control"
-                                                value="<?php echo htmlentities($row['6']) ?>" readonly>
-                                            <label for="age" class="m-auto">Age:</label>
-                                            <input id="age" type="text" class="btn btn-outline-success form-control"
-                                                value="<?php echo htmlentities($row['7']) ?>" readonly>
-                                            <label for="birth" class="m-auto">Birth Date:</label>
-                                            <input id="birth" type="text" class="btn btn-outline-success form-control"
-                                                value="<?php echo htmlentities($row['8']) ?>" readonly>
-                                            <label for="address" class="m-auto">Email Address:</label>
-                                            <input id="address" type="text" class="btn btn-outline-success form-control"
-                                                   value="<?php echo htmlentities($row['3']) ?>" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row m-auto">
-                                        <div class="col-sm-12">
-                                            <label for="name" class="m-auto">Address:</label>
-                                            <input id="name" type="text" class="form-control btn btn-outline-success"
-                                                value="<?php echo htmlentities($row['5']) ?>" readonly>
-
-                                        </div>
-                                    </div>
-                                    <div class="row m-auto">
-                                        <div class="col-sm-12">
-                                            <label for="tertiary" class="m-auto">Tertiary Education:</label>
-                                            <input id="tertiary" type="text" class="form-control btn btn-outline-success"
-                                                   value="<?php echo htmlentities($row[11]) ?>" readonly>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <label for="course" class="m-auto">Course:</label>
-                                            <input id="course" type="text" class="form-control btn btn-outline-success"
-                                                   value="<?php echo htmlentities($row[15]) ?>" readonly>
-                                        </div>
+                                foreach ($fetch as $row):
+                    ?>
+                        <div class="modal-header bg-success">
+                            <h1 class="modal-title">Applicant Information</h1>
+                            <button class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body" style="height: 390px; overflow-y: auto;">
+                            <div class="container">
+                                <div class="row m-auto">
+                                    <div class="col-sm-12">
+                                        <label for="name" class="m-auto">Applicant Name:</label>
+                                        <input id="name" type="text" class="btn btn-outline-success form-control"
+                                            value="<?php echo htmlentities($row['2']) ?>" readonly>
+                                        <label for="gender" class="m-auto">Gender:</label>
+                                        <input id="gender" type="text" class="btn btn-outline-success form-control"
+                                            value="<?php echo htmlentities($row['6']) ?>" readonly>
+                                        <label for="age" class="m-auto">Age:</label>
+                                        <input id="age" type="text" class="btn btn-outline-success form-control"
+                                            value="<?php echo htmlentities($row['7']) ?>" readonly>
+                                        <label for="birth" class="m-auto">Birth Date:</label>
+                                        <input id="birth" type="text" class="btn btn-outline-success form-control"
+                                            value="<?php echo htmlentities($row['8']) ?>" readonly>
+                                        <label for="address" class="m-auto">Email Address:</label>
+                                        <input id="address" type="text" class="btn btn-outline-success form-control"
+                                            value="<?php echo htmlentities($row['3']) ?>" readonly>
                                     </div>
                                 </div>
-                                <?php
+                                <div class="row m-auto">
+                                    <div class="col-sm-12">
+                                        <label for="name" class="m-auto">Address:</label>
+                                        <input id="name" type="text" class="form-control btn btn-outline-success"
+                                            value="<?php echo htmlentities($row['5']) ?>" readonly>
+                                    </div>
+                                </div>
+                                <div class="row m-auto">
+                                    <div class="col-sm-12">
+                                        <label for="tertiary" class="m-auto">Tertiary Education:</label>
+                                        <input id="tertiary" type="text" class="form-control btn btn-outline-success"
+                                            value="<?php echo htmlentities($row[11]) ?>" readonly>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label for="course" class="m-auto">Course:</label>
+                                        <input id="course" type="text" class="form-control btn btn-outline-success"
+                                            value="<?php echo htmlentities($row[15]) ?>" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <form action=""></form>
+                            <button type="submit" name="submit"
+                                class="btn btn-danger form-control" data-dismiss="modal">
+                                Deny Application
+                            </button>
+                            <button type="submit" name="submit" form="accept" class="btn btn-success form-control"
+                                data-dismiss="modal" onclick="location.href=('accept.php?<?php echo 'ID='.htmlentities($row[0]);?>')">
+                                Accept Application
+                            </button>
+                        </div>
+                    <?php
                             endforeach;
                         endif;
-                        ?>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-warning form-control m-auto" data-dismiss="modal">Confirm</button>
-                    </div>
+                    ?>
                 </div>
             </div>
         </div>
