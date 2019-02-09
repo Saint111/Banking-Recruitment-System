@@ -1313,7 +1313,7 @@
     </column>
     <column id="317" parent="275" name="Contact_Number">
       <Position>5</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

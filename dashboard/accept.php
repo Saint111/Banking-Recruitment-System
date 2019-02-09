@@ -6,7 +6,7 @@
  * Time: 11:28 AM
  */
 
-if (!isset($_GET['ID']))
+if (!isset($_GET['ID']) && !isset($_GET['Post']))
 {
     header('Location: table.php');
     exit;
@@ -14,14 +14,23 @@ if (!isset($_GET['ID']))
 else
 {
     $id = Sanitizer($_GET['ID']);
+    $post = Sanitizer($_GET['Post']);
 
-    if (empty($id))
+    if (empty($id) && empty($post))
     {
         header('Location: table.php');
         exit;
     }
     else
     {
+        require_once '../functions/database.php';
+        if (is_numeric($post))
+        {
+            $sql = 'update job_posting set Vacancy = Vacancy - 1 where Post_ID = :post and Vacancy > 0';
+            $statement = $connection -> prepare($sql);
+            $statement -> execute(array(':post' => $post));
+        }
+
         if (!is_numeric($id))
         {
             header('Location: table.php');
@@ -29,7 +38,6 @@ else
         }
         else
         {
-            require_once '../functions/database.php';
             $sql = 'select * from application where Application_ID = :ID';
             $statement = $connection -> prepare($sql);
             $statement -> execute([':ID' => $id]);

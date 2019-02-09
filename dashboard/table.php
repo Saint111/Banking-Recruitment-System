@@ -1,5 +1,10 @@
 <?php
-session_start();
+    session_start();
+    if (isset($_SESSION['role']) != 'Administrator')
+    {
+        header('Location: ../index.php');
+        exit;
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -140,7 +145,7 @@ session_start();
                                     <tbody>
                                     <?php
                                         require_once '../functions/database.php';
-                                        $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied, Course, Status from application';
+                                        $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied, Course, Status from application order by Date_Applied desc';
                                         $statement = $connection -> query($sql);
                                         if ($statement -> rowCount() > 0):
                                             $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
@@ -404,38 +409,38 @@ session_start();
                                     <div class="col-sm-12">
                                         <label for="name" class="m-auto">Applicant Name:</label>
                                         <input id="name" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['2']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['3']) ?>" readonly>
                                         <label for="gender" class="m-auto">Gender:</label>
                                         <input id="gender" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['6']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['7']) ?>" readonly>
                                         <label for="age" class="m-auto">Age:</label>
                                         <input id="age" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['7']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['8']) ?>" readonly>
                                         <label for="birth" class="m-auto">Birth Date:</label>
                                         <input id="birth" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['8']) ?>" readonly>
-                                        <label for="address" class="m-auto">Email Address:</label>
-                                        <input id="address" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['3']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['9']) ?>" readonly>
+                                        <label for="email" class="m-auto">Email Address:</label>
+                                        <input id="email" type="text" class="btn btn-outline-success form-control"
+                                            value="<?php echo htmlentities($row['6']) ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="row m-auto">
                                     <div class="col-sm-12">
                                         <label for="name" class="m-auto">Address:</label>
                                         <input id="name" type="text" class="form-control btn btn-outline-success"
-                                            value="<?php echo htmlentities($row['5']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['4']) ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="row m-auto">
                                     <div class="col-sm-12">
                                         <label for="tertiary" class="m-auto">Tertiary Education:</label>
                                         <input id="tertiary" type="text" class="form-control btn btn-outline-success"
-                                            value="<?php echo htmlentities($row[11]) ?>" readonly>
+                                            value="<?php echo htmlentities($row[12]) ?>" readonly>
                                     </div>
                                     <div class="col-sm-12">
                                         <label for="course" class="m-auto">Course:</label>
                                         <input id="course" type="text" class="form-control btn btn-outline-success"
-                                            value="<?php echo htmlentities($row[15]) ?>" readonly>
+                                            value="<?php echo htmlentities($row[16]) ?>" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -446,7 +451,7 @@ session_start();
                                 Deny Application
                             </button>
                             <button name="submit" class="btn btn-success form-control" data-dismiss="modal"
-                                onclick="location.href=('accept.php?<?php echo 'ID='.htmlentities($row[0]);?>')">
+                                onclick="location.href=('accept.php?<?php echo 'ID='.htmlentities($row[0]).'&Post='.htmlentities($row[1]);?>')">
                                 Accept Application
                             </button>
                         </div>
