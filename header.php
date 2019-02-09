@@ -4,7 +4,7 @@
         <p class="lead">Success is not final; failure is not fatal: It is the courage to continue that counts.</p>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top" role="navigation">
+<nav class="navbar navbar-expand-xl navbar-dark bg-success fixed-top" role="navigation">
     <a href="index.php" class="navbar-brand mr-md-auto">
         <img src="images/Bank.png" alt="Bank Icon">Banking Recruitment
     </a>
@@ -61,7 +61,7 @@
                     ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-toggle="modal" data-target="#login" role="button">
-                                <i class="fas fa-user-circle"></i> Welcome, <strong class="d-inline">'.$username.'</strong>
+                                <i class="fas fa-user-circle"></i> Welcome, <strong class="d-inline"><?php echo $username ?></strong>
                             </a>
                         </li>
                     <?php

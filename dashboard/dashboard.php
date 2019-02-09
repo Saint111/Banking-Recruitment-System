@@ -87,7 +87,7 @@
             <div class="content" style="overflow: auto;">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <button type="button" id="sidebarCollapse" class="btn btn-secondary">
-                        <i class="fa fa-align-justify"></i> <span>Toggle sidebar</span>
+                        <i class="fa fa-align-justify"></i> <span>Toggle Sidebar</span>
                     </button>
                     <!--<a class="navbar-brand" href="#">Navbar</a> -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -118,9 +118,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="card my-3">
+                            <div class="card my-3 w-100">
                                 <div class="card-header text-light bg-success">
                                     <div class="card-title text-white"><h1>Job Postings</h1></div>
+                                    <!--
                                     <ul class="nav nav-tabs card-header-tabs">
                                         <li class="nav-item active">
                                             <a href="#" class="nav-link">Menus</a>
@@ -128,10 +129,128 @@
                                         <li class="nav-item"><a href="#" class="nav-link">Menus</a></li>
                                         <li class="nav-item"><a href="#" class="nav-link">Menus</a></li>
                                     </ul>
+                                    -->
                                 </div>
                                 <?php
                                     require_once 'posting.php';
                                 ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                /**
+                 * @desc This is the view table information.
+                 */
+                ?>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card my-3">
+                                <div class="card-header text-light bg-success">
+                                    <div class="card-title text-white"><h1>Job Applicant Table</h1></div>
+                                </div>
+                                <table class="table table-hover table-responsive">
+                                    <thead class="table-active">
+                                    <tr class="text-center">
+                                        <th>Information</th>
+                                        <th>Status</th>
+                                        <th>Job Applied</th>
+                                        <th>Name of Applicant</th>
+                                        <th>Gender</th>
+                                        <th>Mobile Number</th>
+                                        <th>Email Address</th>
+                                        <th>Date Applied</th>
+                                        <th>Course</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        require_once '../functions/database.php';
+                                        $sql = 'select Application_ID, Job_Applied, Full_Name, Gender, Mobile_Number, Email_Address, Date_Applied, Course, Status from application';
+                                        $statement = $connection -> query($sql);
+                                        if ($statement -> rowCount() > 0):
+                                            $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
+                                            foreach ($fetch as $row):
+                                    ?>
+                                        <tr class="text-center">
+                                            <td>
+                                                <form action="view.php" method="post">
+                                                    <input type="hidden" name="information" value="<?php echo htmlentities($row -> Application_ID) ?>">
+                                                    <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal">
+                                                        <i class="fas fa-eye"></i> View Information
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                    switch (htmlentities($row -> Status)):
+                                                        case 'Pending':
+                                                ?>
+                                                    <button type="submit" name="accept" class="btn btn-light w-100" disabled>
+                                                        <i class="fas fa-exclamation-circle"></i> Pending
+                                                    </button>
+                                                <?php
+                                                        break;
+                                                        case 'Accepted':
+                                                ?>
+                                                    <button type="submit" name="accept" class="btn btn-success w-100" disabled>
+                                                        <i class="far fa-thumbs-up"></i> Accepted
+                                                    </button>
+                                                <?php
+                                                        break;
+                                                        case 'Denied':
+                                                ?>
+                                                    <button type="submit" name="accept" class="btn btn-danger w-100" disabled>
+                                                        <i class="far fa-thumbs-down"></i> Denied
+                                                    </button>
+                                                <?php
+                                                        break;
+                                                        default:
+                                                ?>
+                                                    <button type="submit" name="accept" class="btn btn-dark w-100" disabled>
+                                                        No status
+                                                    </button>
+                                                <?php
+                                                        break;
+                                                    endswitch;
+                                                ?>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="job" class="btn btn-outline-success p-1 m-0 text-white"
+                                                           value="<?php echo htmlentities($row -> Job_Applied) ?>" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="name" class="btn btn-outline-success p-1 text-white"
+                                                           value="<?php echo htmlentities($row -> Full_Name) ?>" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="gender" class="btn btn-outline-success p-1 text-white"
+                                                           value="<?php echo htmlentities($row -> Gender) ?>" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="number" class="btn btn-outline-success p-1 text-white"
+                                                           value="<?php echo htmlentities($row -> Mobile_Number) ?>" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="email" class="btn btn-outline-success p-1 text-white"
+                                                           value="<?php echo htmlentities($row -> Email_Address) ?>" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="date" class="btn btn-outline-success p-1 text-white"
+                                                           value="<?php echo htmlentities($row -> Date_Applied) ?>" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="course" class=" btn btn-outline-success p-1 text-white text-wrap"
+                                                           value="<?php echo htmlentities($row -> Course) ?>" readonly>
+                                                </td>
+                                            </tr>
+                                    <?php
+                                            endforeach;
+                                        endif;
+                                    ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

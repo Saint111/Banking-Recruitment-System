@@ -88,7 +88,7 @@ session_start();
             <div class="content" style="overflow: auto;">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <button type="button" id="sidebarCollapse" class="btn btn-secondary">
-                        <i class="fa fa-align-justify"></i> <span>Toggle sidebar</span>
+                        <i class="fa fa-align-justify"></i> <span>Toggle Sidebar</span>
                     </button>
                     <!--<a class="navbar-brand" href="#">Navbar</a> -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -151,7 +151,7 @@ session_start();
                                                 <form action="view.php" method="post">
                                                     <input type="hidden" name="information" value="<?php echo htmlentities($row -> Application_ID) ?>">
                                                     <button type="submit" name="view" class="btn btn-outline-warning " data-dismiss="modal">
-                                                        View
+                                                        <i class="fas fa-eye"></i> View Information
                                                     </button>
                                                 </form>
                                             </td>
@@ -160,28 +160,28 @@ session_start();
                                                     switch (htmlentities($row -> Status)):
                                                         case 'Pending':
                                                             ?>
-                                                                <button type="submit" name="accept" class="btn btn-light" disabled>
-                                                                    Pending
+                                                                <button type="submit" name="accept" class="btn btn-light w-100" disabled>
+                                                                    <i class="fas fa-exclamation-circle"></i> Pending
                                                                 </button>
                                                             <?php
                                                             break;
                                                         case 'Accepted':
                                                             ?>
-                                                                <button type="submit" name="accept" class="btn btn-success" disabled>
+                                                                <button type="submit" name="accept" class="btn btn-success w-100" disabled>
                                                                     <i class="far fa-thumbs-up"></i> Accepted
                                                                 </button>
                                                             <?php
                                                             break;
                                                         case 'Denied':
                                                             ?>
-                                                                <button type="submit" name="accept" class="btn btn-danger" disabled>
+                                                                <button type="submit" name="accept" class="btn btn-danger w-100" disabled>
                                                                     <i class="far fa-thumbs-down"></i> Denied
                                                                 </button>
                                                             <?php
                                                             break;
                                                         default:
                                                             ?>
-                                                                <button type="submit" name="accept" class="btn btn-dark" disabled>
+                                                                <button type="submit" name="accept" class="btn btn-dark w-100" disabled>
                                                                     No status
                                                                 </button>
                                                             <?php
@@ -229,7 +229,6 @@ session_start();
                     </div>
                 </div>
                 <div class="line"></div>
-                <form action="integrate.php" method="post" id="integrate"></form>
             </div>
         </div>
         <?php
