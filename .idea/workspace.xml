@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2ca547e-20e8-4c61-a907-d09114c0d9f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f964121c-4730-4b71-b379-40a7a62191b5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f964121c-4730-4b71-b379-40a7a62191b5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/accept.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/accept.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard/table.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,14 +40,14 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
-          <entry key="PHP" value="63" />
+          <entry key="PHP" value="64" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="186" />
-          <entry key="PHP" value="9883" />
+          <entry key="PHP" value="9946" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="Scratch" value="9" />
         </counts>
@@ -63,26 +59,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="61" column="66" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="66" />
+            <state relative-caret-position="-46">
+              <caret line="48" column="25" lean-forward="true" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dashboard/table.php">
+        <entry file="file://$PROJECT_DIR$/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="147" column="205" selection-start-line="147" selection-start-column="205" selection-end-line="147" selection-end-column="205" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dashboard/accept.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+            <state relative-caret-position="345">
+              <caret line="90" column="25" lean-forward="true" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -119,13 +106,13 @@
         <option value="$PROJECT_DIR$/script.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/search.php" />
-        <option value="$PROJECT_DIR$/header.php" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/modal.php" />
         <option value="$PROJECT_DIR$/functions/login.php" />
         <option value="$PROJECT_DIR$/dashboard/dashboard.php" />
         <option value="$PROJECT_DIR$/dashboard/accept.php" />
         <option value="$PROJECT_DIR$/dashboard/table.php" />
+        <option value="$PROJECT_DIR$/header.php" />
       </list>
     </option>
   </component>
@@ -142,7 +129,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2.1" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -161,11 +148,6 @@
             <path>
               <item name="Banking-Recruitment-System" type="b2602c69:ProjectViewProjectNode" />
               <item name="Banking-Recruitment-System" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Banking-Recruitment-System" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Banking-Recruitment-System" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Banking-Recruitment-System" type="b2602c69:ProjectViewProjectNode" />
@@ -212,12 +194,12 @@
       <workItem from="1549277116449" duration="26450000" />
       <workItem from="1549307643458" duration="3871000" />
       <workItem from="1549525353831" duration="3521000" />
-      <workItem from="1549646512886" duration="43567000" />
+      <workItem from="1549646512886" duration="44723000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77409000" />
+    <option name="totallyTimeSpent" value="78565000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -229,10 +211,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -345,17 +327,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="110" column="87" selection-start-line="110" selection-start-column="87" selection-end-line="110" selection-end-column="87" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#4;n#ul#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#5;n#ul#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apply.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -389,13 +360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/functions/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="61" column="66" selection-start-line="61" selection-start-column="66" selection-end-line="61" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dashboard/view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="354">
@@ -414,6 +378,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="147" column="205" selection-start-line="147" selection-start-column="205" selection-end-line="147" selection-end-column="205" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/functions/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="48" column="25" lean-forward="true" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="90" column="25" lean-forward="true" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
         </state>
       </provider>
     </entry>

@@ -69,33 +69,36 @@
                     if (isset($_SESSION['role']))
                     {
                         $role = $_SESSION['role'];
-                        ?>
-                            <li class="nav-item">
-                                <a href="./dashboard/dashboard.php" class="btn btn-outline-secondary rounded-0">
-                                    <i class="fas fa-plus-circle"></i> Dashboard
-                                </a>
-                            </li>
-                        <?php
+                        if ($role == 'Administrator')
+                        {
+                            ?>
+                                <li class="nav-item">
+                                    <a href="./dashboard/dashboard.php" class="btn btn-outline-secondary rounded-0">
+                                        <i class="fas fa-plus-circle"></i> Dashboard
+                                    </a>
+                                </li>
+                            <?php
+                        }
+                        else
+                        {
+                            ?>
+                                <li class="nav-item">
+                                    <a href="#" class="btn btn-outline-secondary rounded-0">
+                                        <i class="fas fa-plus-circle"></i> User Profile
+                                    </a>
+                                </li>
+                            <?php
+                        }
                     }
-                    else
-                    {
-                        ?>
-                            <li class="nav-item">
-                                <a href="#" class="btn btn-outline-secondary rounded-0">
-                                    <i class="fas fa-plus-circle"></i> User Profile
-                                </a>
-                            </li>
-                        <?php
-                    }
-                        ?>
-                            <li class="nav-item">
-                                <form action="functions/logout.php" method="post" class="form-inline">
-                                    <button type="submit" name="logout" class="btn btn-outline-secondary rounded-0" role="button">
-                                        <i class="fas fa-sign-out-alt"></i> Logout
-                                    </button>
-                                </form>
-                            </li>
-                        <?php
+                    ?>
+                        <li class="nav-item">
+                            <form action="functions/logout.php" method="post" class="form-inline">
+                                <button type="submit" name="logout" class="btn btn-outline-secondary rounded-0" role="button">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
+                            </form>
+                        </li>
+                    <?php
                 }
                 else
                 {
