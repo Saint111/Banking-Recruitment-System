@@ -72,10 +72,14 @@
                                 <form action="functions/submit.php" method="post" id="application">
                                     <div class="card-body">
                                         <?php
-                                            if (isset($_GET['Job']))
+                                            if (isset($_GET['Job']) && isset($_GET['ID']))
                                             {
                                                 $job = $_GET['Job'];
-                                                ?><input type="hidden" name="job" value="<?php echo $job?>"><?php
+                                                $id = $_GET['ID'];
+                                                ?>
+                                                    <input type="hidden" name="job" value="<?php echo $job?>">
+                                                    <input type="hidden" name="id" value="<?php echo $id?>">
+                                                <?php
                                             }
                                         ?>
                                         <div class="row">
@@ -117,23 +121,19 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="number">Mobile Number:</label>
-                                                    <input type="number" name="number" id="number" placeholder="Please enter your number..."
-                                                        min="10000000000" max="20000000000" maxlength="9" class="form-control border-success">
+                                                    <input type="number" name="number" id="number" placeholder="Please enter your number..." min="1000000000" max="99999999999"
+                                                        onKeyUp="if(this.value>99999999999){this.value='99999999999';}else if(this.value<0){this.value='0';}"
+                                                        maxlength="11" class="form-control border-success">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <div class="form-group">
                                                     <label for="email">Email Address:</label>
-                                                    <input type="text" name="email" id="email" placeholder="Please enter your email..."
-                                                           class="form-control border-success">
+                                                    <input type="email" name="email" id="email" placeholder="Please enter your email..."
+                                                        class="form-control border-success">
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php
-                                            /**
-                                             *@desc Unfinished radio button.
-                                             */
-                                        ?>
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="card-header border-success">
@@ -154,8 +154,9 @@
                                                 <div class="form-group">
                                                     <label for="age">Your Age:</label>
                                                     <input type="number" name="age" id="age" maxlength="2" min="18" max="99"
-                                                        class="form-control-sm border-success w-100" placeholder="Age..."
-                                                        value="<?php if (isset($_GET['Age'])){ echo $_GET['Age'];} ?>">
+                                                        class="form-control-sm border-success w-100" placeholder="Age must be 18 or above."
+                                                        value="<?php if (isset($_GET['Age'])){ echo $_GET['Age'];} ?>"
+                                                        onKeyUp="if(this.value>99){this.value='99';}else if(this.value<0){this.value='0';}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">

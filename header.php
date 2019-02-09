@@ -45,7 +45,7 @@
                     <input type="text" name="search" placeholder="Search jobs by name or skills..."
                            class="form-control rounded-0">
                     <div class="input-group-prepend">
-                        <button type="submit" class="btn btn-outline-light rounded-0">
+                        <button type="submit" class="btn btn-outline-secondary rounded-0">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -71,7 +71,7 @@
                         $role = $_SESSION['role'];
                         ?>
                             <li class="nav-item">
-                                <a href="./dashboard/dashboard.php" class="btn btn-outline-light rounded-0">
+                                <a href="./dashboard/dashboard.php" class="btn btn-outline-secondary rounded-0">
                                     <i class="fas fa-plus-circle"></i> Dashboard
                                 </a>
                             </li>
@@ -81,7 +81,7 @@
                     {
                         ?>
                             <li class="nav-item">
-                                <a href="#" class="btn btn-outline-light rounded-0">
+                                <a href="#" class="btn btn-outline-secondary rounded-0">
                                     <i class="fas fa-plus-circle"></i> User Profile
                                 </a>
                             </li>
@@ -90,7 +90,7 @@
                         ?>
                             <li class="nav-item">
                                 <form action="functions/logout.php" method="post" class="form-inline">
-                                    <button type="submit" name="logout" class="btn btn-outline-light rounded-0" role="button">
+                                    <button type="submit" name="logout" class="btn btn-outline-secondary rounded-0" role="button">
                                         <i class="fas fa-sign-out-alt"></i> Logout
                                     </button>
                                 </form>
@@ -101,12 +101,14 @@
                 {
                     ?>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#login" role="button">
+                            <a href="#" class="nav-link btn btn-outline-secondary w-100" data-toggle="modal"
+                                data-target="#login" role="button" style="border-radius: 30px 0 0 30px;">
                                 <i class="fas fa-sign-in-alt"></i> Login
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#register" role="button">
+                            <a href="#" class="nav-link btn btn-outline-secondary w-100" data-toggle="modal"
+                                data-target="#register" role="button" style="border-radius: 0 30px 30px 0;">
                                 <i class="fas fa-edit"></i> Sign up
                             </a>
                         </li>

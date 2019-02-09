@@ -75,9 +75,9 @@
                                             <div class="card-header">
                                                 <h2>
                                                     <?php echo $row -> Job_Title?>
-                                                    <button class="btn btn-outline-warning">
+                                                    <button id="vacant" class="btn btn-outline-warning" style="border-radius: 30px;">
                                                         Vacancy:
-                                                        <span class="badge badge-danger badge-pill">
+                                                        <span class="badge badge-success badge-pill">
                                                             <?php echo $row -> Vacancy?>
                                                         </span>
                                                     </button>
@@ -92,7 +92,7 @@
                                                 <?php
                                                     if (isset($_SESSION['username']))
                                                     {
-                                                        $location = 'apply.php?Job='.$row -> Job_Title;
+                                                        $location = 'apply.php?ID='.$row -> Post_ID.'&Job='.$row -> Job_Title;
                                                         ?>
                                                             <button type="submit" class="btn btn-warning form-control"
                                                                 onclick="location.href=('<?php echo $location ?>')">Apply Now

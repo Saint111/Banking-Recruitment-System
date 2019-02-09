@@ -53,7 +53,12 @@
                 <div class="col-lg-9">
                     <div class="card my-3">
                         <div class="card-header bg-success">
-                            <h1 class="card-title">Search Job Results</h1>
+                            <h1 class="card-title">
+                                Search Job Results
+                                <a href="index.php" class="btn btn-outline-secondary m-auto" style="border-radius: 30px;">
+                                    Show all post.
+                                </a>
+                            </h1>
                         </div>
                         <div class="card-body">
                             <?php
@@ -70,7 +75,15 @@
                                             ?>
                                                 <div class="card border-success mb-3 w-100 d-block">
                                                     <div class="card-header">
-                                                        <h2><?php echo $row -> Job_Title?></h2>
+                                                        <h2>
+                                                            <?php echo $row -> Job_Title?>
+                                                            <button id="vacant" class="btn btn-outline-warning" style="border-radius: 30px;">
+                                                                Vacancy:
+                                                                <span class="badge badge-success badge-pill">
+                                                                    <?php echo $row -> Vacancy?>
+                                                                </span>
+                                                            </button>
+                                                        </h2>
                                                     </div>
                                                     <div class="card-body text-success">
                                                         <p class="card-text"><?php echo $row -> Description ?></p>

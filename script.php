@@ -34,3 +34,9 @@
     {
         echo "<script>$('#finish').modal('show')</script>";
     }
+
+    ?>
+        <script>
+
+        </script>
+    <?php
