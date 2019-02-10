@@ -409,38 +409,38 @@
                                     <div class="col-sm-12">
                                         <label for="name" class="m-auto">Applicant Name:</label>
                                         <input id="name" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['3']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['4']) ?>" readonly>
                                         <label for="gender" class="m-auto">Gender:</label>
                                         <input id="gender" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['7']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['8']) ?>" readonly>
                                         <label for="age" class="m-auto">Age:</label>
                                         <input id="age" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['8']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['9']) ?>" readonly>
                                         <label for="birth" class="m-auto">Birth Date:</label>
                                         <input id="birth" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['9']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['10']) ?>" readonly>
                                         <label for="email" class="m-auto">Email Address:</label>
                                         <input id="email" type="text" class="btn btn-outline-success form-control"
-                                            value="<?php echo htmlentities($row['6']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['7']) ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="row m-auto">
                                     <div class="col-sm-12">
                                         <label for="name" class="m-auto">Address:</label>
                                         <input id="name" type="text" class="form-control btn btn-outline-success"
-                                            value="<?php echo htmlentities($row['4']) ?>" readonly>
+                                            value="<?php echo htmlentities($row['5']) ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="row m-auto">
                                     <div class="col-sm-12">
                                         <label for="tertiary" class="m-auto">Tertiary Education:</label>
                                         <input id="tertiary" type="text" class="form-control btn btn-outline-success"
-                                            value="<?php echo htmlentities($row[12]) ?>" readonly>
+                                            value="<?php echo htmlentities($row['13']) ?>" readonly>
                                     </div>
                                     <div class="col-sm-12">
                                         <label for="course" class="m-auto">Course:</label>
                                         <input id="course" type="text" class="form-control btn btn-outline-success"
-                                            value="<?php echo htmlentities($row[16]) ?>" readonly>
+                                            value="<?php echo htmlentities($row['17']) ?>" readonly>
                                     </div>
                                 </div>
                             </div>

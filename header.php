@@ -83,8 +83,8 @@
                         {
                             ?>
                                 <li class="nav-item">
-                                    <a href="#" class="btn btn-outline-secondary rounded-0">
-                                        <i class="fas fa-plus-circle"></i> User Profile
+                                    <a href="notify.php" class="btn btn-outline-secondary rounded-0">
+                                        <i class="fas fa-plus-circle"></i> Notification
                                     </a>
                                 </li>
                             <?php

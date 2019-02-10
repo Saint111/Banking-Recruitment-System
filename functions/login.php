@@ -59,6 +59,7 @@
                                 $role = $row['1'];
                                 if ($verify == $password)
                                 {
+                                    $_SESSION['id'] = $row['0'];
                                     $_SESSION['role'] = $row['1'];
                                     $_SESSION['username'] = $row['2'];
                                     $_SESSION['email'] = $row['3'];

@@ -123,14 +123,14 @@
                                                     <label for="number">Mobile Number:</label>
                                                     <input type="number" name="number" id="number" placeholder="Please enter your number..." min="1000000000" max="99999999999"
                                                         onKeyUp="if(this.value>99999999999){this.value='99999999999';}else if(this.value<0){this.value='0';}"
-                                                        maxlength="11" class="form-control border-success">
+                                                        maxlength="11" class="form-control border-success" value="<?php if (isset($_GET['mobile'])){ echo $_GET['mobile'];}?>">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <div class="form-group">
                                                     <label for="email">Email Address:</label>
                                                     <input type="email" name="email" id="email" placeholder="Please enter your email..."
-                                                        class="form-control border-success">
+                                                        class="form-control border-success" value="<?php if (isset($_GET['mail'])){ echo $_GET['mail'];}?>">
                                                 </div>
                                             </div>
                                         </div>

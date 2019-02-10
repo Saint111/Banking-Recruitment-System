@@ -9,10 +9,10 @@
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
-    <?php
-        require_once 'functions/database.php';
-        require_once 'head.php';
-    ?>
+<?php
+    require_once 'functions/database.php';
+    require_once 'head.php';
+?>
     <body>
         <header>
             <?php
@@ -35,15 +35,15 @@
                             if ($statement -> rowCount() > 0):
                                 while ($row = $statement -> fetch(PDO::FETCH_NUM))
                                 {
-                        ?>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <a href="#" class="btn btn-warning form-control text-truncate text-left">
-                                    <?php echo $row['1']?>
-                                </a>
-                            </li>
-                        </ul>
-                        <?php
+                                    ?>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <a href="#" class="btn btn-warning form-control text-truncate text-left">
+                                                    <?php echo $row['1']?>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    <?php
                                 }
                             endif;
                         ?>
@@ -71,50 +71,50 @@
                                             $fetch = $statement -> fetchAll(PDO::FETCH_OBJ);
                                             foreach ($fetch as $row):
                                         ?>
-                                        <div class="card border-success mb-3 w-100 d-block">
-                                            <div class="card-header">
-                                                <h2>
-                                                    <?php echo $row -> Job_Title?>
-                                                    <button id="vacant" class="btn btn-outline-warning" style="border-radius: 30px;">
-                                                        Vacancy:
-                                                        <span class="badge badge-success badge-pill">
-                                                            <?php echo $row -> Vacancy?>
-                                                        </span>
-                                                    </button>
-                                                </h2>
-                                            </div>
-                                            <div class="card-body text-success">
-                                                <p class="card-text"><?php echo $row -> Description ?></p>
-                                                <hr>
-                                                <p class="card-text"><?php echo $row -> Qualifications ?></p>
-                                                <hr>
-                                                <p class="card-text"><?php echo $row -> Responsibilities ?></p>
-                                                <?php
+                                            <div class="card border-success mb-3 w-100 d-block">
+                                                <div class="card-header">
+                                                    <h2>
+                                                        <?php echo $row -> Job_Title?>
+                                                        <button id="vacant" class="btn btn-outline-warning" style="border-radius: 30px;">
+                                                            Vacancy:
+                                                            <span class="badge badge-success badge-pill">
+                                                                <?php echo $row -> Vacancy?>
+                                                            </span>
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <div class="card-body text-success">
+                                                    <p class="card-text"><?php echo $row -> Description ?></p>
+                                                    <hr>
+                                                    <p class="card-text"><?php echo $row -> Qualifications ?></p>
+                                                    <hr>
+                                                    <p class="card-text"><?php echo $row -> Responsibilities ?></p>
+                                                    <?php
                                                     if (isset($_SESSION['username']))
                                                     {
                                                         $location = 'apply.php?ID='.$row -> Post_ID.'&Job='.$row -> Job_Title;
                                                         ?>
-                                                            <button type="submit" class="btn btn-warning form-control"
+                                                        <button type="submit" class="btn btn-warning form-control"
                                                                 onclick="location.href=('<?php echo $location ?>')">Apply Now
-                                                            </button>
+                                                        </button>
                                                         <?php
                                                     }
                                                     else
                                                     {
                                                         ?>
-                                                            <button class="btn btn-warning form-control" data-toggle="modal"
+                                                        <button class="btn btn-warning form-control" data-toggle="modal"
                                                                 data-target="#apply">Apply Now</button>
                                                         <?php
                                                     }
-                                                ?>
+                                                    ?>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <blockquote>
+                                                        <small>Author: <?php echo $row -> Author?></small><hr/>
+                                                        <footer><small>Date Posted: <?php echo $row -> Time_Posted?></small></footer>
+                                                    </blockquote>
+                                                </div>
                                             </div>
-                                            <div class="card-footer">
-                                                <blockquote>
-                                                    <small>Author: <?php echo $row -> Author?></small><hr/>
-                                                    <footer><small>Date Posted: <?php echo $row -> Time_Posted?></small></footer>
-                                                </blockquote>
-                                            </div>
-                                        </div>
                                         <?php
                                             endforeach;
                                         ?>

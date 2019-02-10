@@ -8,11 +8,14 @@
 
 if (!isset($_GET['ID']) && !isset($_GET['Post']))
 {
+    session_abort();
     header('Location: table.php');
     exit;
 }
 else
 {
+    session_start();
+    $user = Sanitizer($_SESSION['id']);
     $id = Sanitizer($_GET['ID']);
     $post = Sanitizer($_GET['Post']);
 
@@ -47,13 +50,13 @@ else
                 {
                     $sql = 'insert into management values (null, :job, :name, :number, :email, :gender, :date, :course)';
                     $statement = $connection -> prepare($sql);
-                    $statement -> bindParam(':job', $row[1]);
-                    $statement -> bindParam(':name', $row[2]);
-                    $statement -> bindParam(':number', $row[4]);
-                    $statement -> bindParam(':email', $row[5]);
-                    $statement -> bindParam(':gender', $row[6]);
-                    $statement -> bindParam(':date', $row[14]);
-                    $statement -> bindParam(':course', $row[15]);
+                    $statement -> bindParam(':job', $row[2]);
+                    $statement -> bindParam(':name', $row[4]);
+                    $statement -> bindParam(':number', $row[6]);
+                    $statement -> bindParam(':email', $row[7]);
+                    $statement -> bindParam(':gender', $row[8]);
+                    $statement -> bindParam(':date', $row[10]);
+                    $statement -> bindParam(':course', $row[17]);
                     $statement -> execute();
 
                     $sql = 'update application set Status = :status where Application_ID = :id';
