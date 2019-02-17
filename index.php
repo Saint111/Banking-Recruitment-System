@@ -83,8 +83,8 @@
                                                     </button>
                                                 </h2>
                                             </div>
-                                            <div class="card-body text-success">
-                                                <p class="card-text"><?php echo $row -> Description ?></p>
+                                            <div class="card-body text-success h-100">
+                                                <p class="card-text h-100"><?php echo $row -> Description ?></p>
                                                 <hr>
                                                 <p class="card-text"><?php echo $row -> Qualifications ?></p>
                                                 <hr>

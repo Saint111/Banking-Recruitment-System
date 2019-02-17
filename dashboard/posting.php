@@ -13,7 +13,10 @@
                         <div class="card-header">
                             <h2 class="mr-auto">
                                 <?php echo $row -> Job_Title?>
-                                <button class="btn btn-warning ml-auto" data-toggle="modal" data-target="#edit">Edit</button>
+                                <button class="btn btn-warning ml-auto"
+                                    onclick="location.href=('dashboard.php?Value=<?php echo $row -> Post_ID?>')">
+                                    Edit
+                                </button>
                             </h2>
                         </div>
                         <div class="card-body text-success">

@@ -289,41 +289,62 @@
          */
         ?>
         <?php
-            $sql = 'select * from job_posting order by Time_Posted desc';
-            $statement = $connection -> query($sql);
-            if ($statement -> rowCount())
-            {
-                while ($row = $statement -> fetch(PDO::FETCH_NUM))
+            if (isset($_GET['Value'])):
+                $value = $_GET['Value'];
+                $sql = 'select * from job_posting where Post_ID = ?';
+                $statement = $connection -> prepare($sql);
+                $statement -> bindParam('1', $value);
+                $statement -> execute();
+                if ($statement -> rowCount() == 1)
                 {
+                    while ($row = $statement -> fetch(PDO::FETCH_NUM))
+                    {
         ?>
-        <div class="row">
-            <div id="edit" class="modal fade">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header bg-success">
-                            <h5>Current Title. <span class="badge badge-warning lead"><?php echo $row['1']?></span></h5>
-                            <button class="close" data-dismiss="modal" data-target="edit">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="">
-                                <div class="form-group">
-                                    <label for="title">Title:</label>
-                                    <input type="text" name="title" id="title" class="form-control"
-                                           placeholder="Enter new title here."/>
-                                </div>
-                                <input type="hidden" name="id" value="<?php echo $row['0']?>">
-                            </form>
-                        </div>
-                        <div class="modal-footer bg-success">
-                            <button class="btn btn-warning m-auto">Update</button>
+            <div class="row">
+                <div id="edit" class="modal fade">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header bg-success">
+                                <h5>Current Title. <span class="badge badge-warning lead"><?php echo $row['1']?></span></h5>
+                                <button class="close" data-dismiss="modal" data-target="edit">&times;</button>
+                            </div>
+                            <div class="modal-body" style="height: 500px;overflow-y: auto;">
+                                <form action="update.php" method="post" id="update">
+                                    <input type="hidden" name="post" value="<?php echo $row['0'] ?>">
+                                    <div class="form-group">
+                                        <label for="title">Title:</label>
+                                        <input type="text" name="title" id="title" class="form-control"
+                                            value="<?php echo $row['1']?>" placeholder="Enter new title here."/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description:</label>
+                                        <textarea name="description" id="description" cols="30" rows="5"
+                                            class="form-control"><?php echo $row['5']?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="qualifications">Qualifications:</label>
+                                        <textarea name="qualifications" id="qualifications" cols="30" rows="5"
+                                            class="form-control"><?php echo $row['6']?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="responsibilities">Responsibilities:</label>
+                                        <textarea name="responsibilities" id="responsibilities" cols="30" rows="5"
+                                            class="form-control"><?php echo $row['7']?></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer bg-success">
+                                <button type="submit" class="btn btn-warning m-auto"
+                                    name="submit" form="update">Update</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         <?php
+                    }
                 }
-            }
+            endif;
         ?>
         <?php
         /**
@@ -475,6 +496,10 @@
             if (isset($_GET['Access']) == 'Success')
             {
                 echo "<script>$('#welcome').modal('show')</script>";
+            }
+            if (isset($_GET['Value']))
+            {
+                echo "<script>$('#edit').modal('show')</script>";
             }
         ?>
     </body>
